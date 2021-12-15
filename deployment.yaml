@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sbmvnpodinfo-deployment
+  labels:
+    app: sbmvnpodinfo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sbmvnpodinfo
+  template:
+    metadata:
+      labels:
+        app: sbmvnpodinfo
+    spec:
+      containers:
+      - name: sbmvnpodinfo
+        image: tapan2609/podinfo:{{BUILD_NUMBER}}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8088
+        env:
+        - name: MY_NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        - name: MY_POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: MY_POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: MY_POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        - name: MY_POD_SERVICE_ACCOUNT
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.serviceAccountName
