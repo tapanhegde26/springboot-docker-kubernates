@@ -16,10 +16,10 @@ spec:
     spec:
       containers:
       - name: sbmvnpodinfo
-        image: tapan2609/podinfo:{{BUILD_NUMBER}}
+        image: tapan2609/sbmvnpodinfo:{{BUILD_NUMBER}}
         imagePullPolicy: Always
         ports:
-        - containerPort: 8088
+        - containerPort: 8080
         env:
         - name: MY_NODE_NAME
           valueFrom:
