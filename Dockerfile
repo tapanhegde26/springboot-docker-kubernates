@@ -7,5 +7,5 @@ RUN mvn -f /home/app/pom.xml clean test package
 # Package stage
 FROM openjdk:8-jdk-alpine
 COPY --from=build /home/app/target/*.jar app.jar
-EXPOSE 8088
+EXPOSE 8080
 ENTRYPOINT ["java","-jar","app.jar"]
