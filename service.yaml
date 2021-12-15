@@ -8,6 +8,6 @@ spec:
     app: sbmvnpodinfo
   ports:
   - protocol: TCP
-    nodePort: 30310
+    nodePort: 30301
     port: 8088
     targetPort: 8088
