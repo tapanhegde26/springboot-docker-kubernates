@@ -8,6 +8,6 @@ public class HelloController {
 
     @GetMapping("/greet")
     public String index() {
-        return "tan tana tan tan tan tara...chalti he kya nou do gyara!";
+        return "Why do we fall bruce!!?.. Just to rise up again!!";
     }
 }
